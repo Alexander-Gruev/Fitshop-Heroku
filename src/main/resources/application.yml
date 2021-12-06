@@ -1,14 +1,12 @@
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/fitshop?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
-    username: root
-    password: ${MYSQL_PASS}
-  sql:
-    init:
-      mode: always
+    driverClassName: org.postgresql.Driver
+    url: ${JDBC_DATABASE_URL:}
+    username: ${JDBC_DATABASE_USERNAME:}
+    password: ${JDBC_DATABASE_PASSWORD:}
+
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     open-in-view: false
@@ -31,3 +29,5 @@ cloudinary:
       api-key: ${CLOUDINARY_API_KEY}
       api-secret: ${CLOUDINARY_API_SECRET}
       cloud-name: ${CLOUDINARY_CLOUD_NAME}
+
+server.port: ${PORT:8080}
