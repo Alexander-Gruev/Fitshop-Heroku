@@ -22,7 +22,7 @@ public class ProductEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ProductCategoryEnum category;
 
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
