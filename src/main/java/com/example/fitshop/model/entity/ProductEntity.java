@@ -24,8 +24,7 @@ public class ProductEntity extends BaseEntity {
     private ProductCategoryEnum category;
 
     @Lob
-    @Type(type = "org.hibernate.type.TextType")
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false)
