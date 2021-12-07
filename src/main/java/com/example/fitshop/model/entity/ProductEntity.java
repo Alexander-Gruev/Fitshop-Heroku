@@ -22,7 +22,6 @@ public class ProductEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ProductCategoryEnum category;
 
-    @Lob
     @Column(nullable = false, length = 1000)
     private String description;
 
