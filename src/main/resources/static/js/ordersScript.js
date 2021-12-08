@@ -4,7 +4,7 @@ $('#showOrders').click(() => {
 
 function loadOrders() {
     $("#orders-container").empty();
-    fetch("http://localhost:8080/orders/user").
+    fetch("https://fitshop-web-app.herokuapp.com/orders/user").
     then(response => response.json()).
     then(json => json.forEach(o => {
         let liElement = document.createElement("li");
