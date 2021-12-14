@@ -1,7 +1,6 @@
 package com.example.fitshop.model.entity;
 
 import com.example.fitshop.enums.ProductCategoryEnum;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

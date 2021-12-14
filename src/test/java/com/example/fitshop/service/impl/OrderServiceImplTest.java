@@ -18,12 +18,12 @@ import org.mockito.Mockito;
 import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+import static com.example.fitshop.GlobalTestConstants.*;
 
 import java.time.Instant;
 import java.util.List;
 
-import static com.example.fitshop.GlobalTestConstants.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {

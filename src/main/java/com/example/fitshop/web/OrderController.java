@@ -3,7 +3,9 @@ package com.example.fitshop.web;
 import com.example.fitshop.model.binding.OrderBindingModel;
 import com.example.fitshop.model.service.OrderServiceModel;
 import com.example.fitshop.service.OrderService;
+import com.example.fitshop.service.ProductService;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/orders")
@@ -59,5 +63,10 @@ public class OrderController {
         this.orderService.addOrder(orderServiceModel);
 
         return "redirect:/users/profile";
+    }
+
+    @GetMapping("/all")
+    public String all() {
+        return "orders-all";
     }
 }

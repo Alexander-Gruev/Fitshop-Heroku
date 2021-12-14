@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class OrdersRestController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/all")
+    @GetMapping("/all/api")
     public ResponseEntity<List<OrderViewModel>> getAllOrders() {
         List<OrderViewModel> orders = this.orderService.getAllOrders();
         return ResponseEntity.ok(orders);

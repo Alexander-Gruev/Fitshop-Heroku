@@ -4,6 +4,7 @@ import com.example.fitshop.model.custom.FitshopUser;
 import com.example.fitshop.model.entity.UserEntity;
 import com.example.fitshop.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

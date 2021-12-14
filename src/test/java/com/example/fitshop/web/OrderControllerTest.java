@@ -17,11 +17,11 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static com.example.fitshop.GlobalTestConstants.*;
 
 import javax.annotation.PostConstruct;
 import java.util.Set;
 
-import static com.example.fitshop.GlobalTestConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -87,10 +87,10 @@ class OrderControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/orders/new/" + PRODUCT_NAME).
                         param("country", ORDER_COUNTRY).
                         param("clientFullName", ORDER_CLIENT_FULL_NAME).
-                        param("postcode", ORDER_POSTCODE).
+                        param("postcode", String.valueOf(ORDER_POSTCODE)).
                         param("address", ORDER_ADDRESS).
                         param("email", ORDER_EMAIL).
-                        param("phoneNumber", ORDER_PHONE_NUMBER).
+                        param("phoneNumber", String.valueOf(ORDER_PHONE_NUMBER)).
                         param("paymentMethod", ORDER_PAYMENT_METHOD).
                         with(csrf()).
                         contentType(MediaType.APPLICATION_FORM_URLENCODED))

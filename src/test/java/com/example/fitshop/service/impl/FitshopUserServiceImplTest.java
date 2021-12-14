@@ -4,9 +4,9 @@ import com.example.fitshop.enums.UserRoleEnum;
 import com.example.fitshop.model.entity.UserEntity;
 import com.example.fitshop.model.entity.UserRoleEntity;
 import com.example.fitshop.repository.UserRepository;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -14,12 +14,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import static com.example.fitshop.GlobalTestConstants.*;
 
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static com.example.fitshop.GlobalTestConstants.*;
 
 @ExtendWith(MockitoExtension.class)
 class FitshopUserServiceImplTest {

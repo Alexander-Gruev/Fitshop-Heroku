@@ -1,5 +1,7 @@
 package com.example.fitshop.model.view;
 
+import com.example.fitshop.model.entity.ProductEntity;
+
 import java.time.Instant;
 
 public class OrderProfileViewModel {

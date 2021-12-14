@@ -22,11 +22,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.time.Instant;
 import java.util.Set;
 
-import static com.example.fitshop.GlobalTestConstants.*;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static com.example.fitshop.GlobalTestConstants.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc

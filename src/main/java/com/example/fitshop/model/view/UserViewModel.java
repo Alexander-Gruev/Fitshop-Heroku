@@ -2,6 +2,7 @@ package com.example.fitshop.model.view;
 
 import com.example.fitshop.enums.UserExperienceEnum;
 import com.example.fitshop.model.entity.OrderEntity;
+import com.example.fitshop.model.entity.ProductEntity;
 
 import java.util.Set;
 

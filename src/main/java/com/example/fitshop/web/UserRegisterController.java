@@ -1,21 +1,26 @@
 package com.example.fitshop.web;
 
 import com.example.fitshop.enums.UserExperienceEnum;
+import com.example.fitshop.model.binding.UserPictureBindingModel;
 import com.example.fitshop.model.binding.UserRegisterBindingModel;
+import com.example.fitshop.model.service.UserPictureServiceModel;
 import com.example.fitshop.model.service.UserRegisterServiceModel;
+import com.example.fitshop.model.view.UserViewModel;
 import com.example.fitshop.service.UserService;
+import org.apache.catalina.core.ApplicationContext;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.AuthenticatedPrincipal;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/users")
@@ -47,9 +52,15 @@ public class UserRegisterController {
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors() ||
-                !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
 
+            return "redirect:/users/register";
+        }
+
+        if (!userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
+            redirectAttributes.addFlashAttribute("diffPasswords", true);
             redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
 
